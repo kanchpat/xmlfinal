@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:xi="http://www.w3.org/2001/XInclude">
+<head>
+  <title>Advanced Course Search</title>
+
+  <!-- jquery.js is the main jquery library
+       jquery.form.js is the Forms plugin, which has a lot of good 
+          AJAX functionality -->
+  <script src="js/jquery/jquery.js" type="text/javascript">  </script>
+  <script src="js/jquery/jquery.form.js" type="text/javascript">  </script>
+
+  <!-- this is the custom script
+       the "load" function of jQuery expects a URL as the first argument
+            and a javascript data structure that contains the query parameters that will be passed to the URL
+	    as the second argument 
+  -->
+  <!-- 
+       the '$' syntax is a jQuery shortcut to refer to the 'jQuery' object
+
+       the $('#courselist') syntax is the jQuery way of refering to 
+       the DOM, and in this case the node whose id is 'courselist' 
+
+       so, $('#inputid').fieldValue gives us an array of the input values 
+       of the input field whose id is 'inputid' 
+  -->
+  <script src="js/search.js" type="text/javascript">
+  
+  </script>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/2.8.0r4/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css"/>
+  <link rel="stylesheet" href="css/search_styling.css" type="text/css" />
+  <link rel="stylesheet" href="css/styling.css" type="text/css"/>
+</head>
+
+  <body  class="yui-skin-sam"><div id="doc3" class="yui-t7">
+    <div id="hd" role="banner">
+      <div id="top-right">
+        <a href="mobile/index.xhtml">| Switch to mobile |</a>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <a class="plain" href="home.html"><img src="web/images/shield.png" alt=""/></a>
+          </td>
+          <td>
+            <h1>Harvard University, Faculty of Arts &amp; Sciences Course Catalog </h1>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="bd" role="main">
+      <div class="yui-g">
+        <div style="width: 65%; float: left; margin-left: 10px;">
+          <form action=" " onsubmit="getCourseList(); return false;">
+            <div>
+              <xi:include href="cocoon:/dept2select.html" />
+              <xi:include href="cocoon:/coursegroup2select.html" />
+              <xi:include href="cocoon:/term2select.html" />
+              <xi:include href="cocoon:/level2select.html" />
+              <xi:include href="cocoon:/instructor2select.html" />
+              <xi:include href="cocoon:/days2select.html" />
+              <xi:include href="cocoon:/time2select.html" />
+               <div class="forminput"><input type="checkbox" checked="checked" id="offered" name="offered" value="Y" />
+                <label for="offered">Show only offered courses</label>
+              </div>
+              <div class="forminput"><input type="button" id="submit" name="submit" onclick="getCourseList()" value="Search" />
+              </div>
+              <div align="right"><a href="http://localhost:8080/cocoon/final_project/home.html">Back To Home</a></div>
+            </div>
+            <div id="courselist">
+              Course Results will be displayed here.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="ft" role="contentinfo">
+      <hr/>
+      <div class="cgAnch"> &#169; 2011 Orange Team - CSCI153 -- </div>
+    </div>
+  </div>
+    
+  
+</body>
+</html>

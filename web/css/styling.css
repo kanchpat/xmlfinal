@@ -1,0 +1,307 @@
+ul,
+li
+{
+    font-size : 10pt;
+    list-style : none;
+
+}
+h1,
+h2,
+h3 {
+    font-weight : bold;
+
+}
+
+h1 {
+    font-size : 30px;
+    margin : .0em 0 .1em 0;
+    letter-spacing : .02em;
+}
+
+h2 {
+    font-size : 20px;
+    margin : .0em 0 .0em 0;
+    letter-spacing : .02em;
+    line-height : 1.2;
+}
+
+h3 {
+    font-size : 18px;
+    margin : .0em 0 .0em 0;
+    letter-spacing : .02em;
+    line-height : 1.2;
+}
+body {
+    font-family : calibri, verdana, arial, helvetica, sans-serif;
+    font-size : 15px;
+    text-align : left;
+}
+div.cgAnch {
+    font-size : 14px;
+    text-align : center;
+}
+
+div#top-right {
+    width : 100%;
+/*    float : left;*/
+/*    margin-left : 10px;*/
+    position : relative;
+    text-align : right;
+}
+
+div.right {
+    width : 100%;
+    float : right;
+    width : 120px;
+}
+
+div#left-nav {
+    padding : 1em;
+/*    margin : 10px;*/
+    float : left;
+    width : 200px;
+    height : 100%;
+    overflow : auto;
+    border-right : thin dotted;
+    
+}
+div#right-nav {
+   width: 70%; float: left;
+   padding : 10px;
+   border-left : thin dotted;
+}
+
+tr,td
+{
+    padding : 10px;
+
+}
+th
+{
+    font-weight : bold;
+}
+
+table.details
+{
+    width : 100%;
+    border-width : 1px;
+    border-color : black;
+    padding : 2px;
+    margin : 0px;
+    border-style : solid;
+    border-collapse : collapse;
+
+}
+td.details
+{
+    border-width : 1px;
+    border-color : black;
+    padding : 2px;
+    margin : 0px;
+    border-bottom : solid;
+    border-collapse : collapse;
+
+}
+tr.detailsHeader
+{
+    background-color : #C0C0C0;
+    font-size : 14px;
+    text-align : left;
+    padding : 2px;
+    margin : 0;
+    border-color : black;
+    border-style : none;
+    border-collapse : collapse;
+}
+tr#bc
+{
+    background-color : #C0C0C0;
+    font-size : 14px;
+    text-align : left;
+    padding : 0px;
+
+}
+td#bc
+{
+    padding : 2px;
+}
+
+tr.detailsEven
+{
+    background-color : #E0FFFF;
+    font-size : 14px;
+    text-align : left;
+    padding : 0px;
+
+}
+tr.detailsOdd
+{
+    background-color : #FFFFFF;
+    font-size : 14px;
+    text-align : left;
+    padding : 0px;
+
+}
+p {
+    margin-left : 0px;
+    margin-top : 5px;
+    padding : 0px;
+}
+p#groupby {
+    padding-top : 5px;
+    padding-bottom : 5px;
+}
+
+p#grpType {
+    text-decoration : underline;
+}
+
+p.indented {
+    margin-left : 30px;
+    margin-top : 5px;
+    padding : 0px;
+}
+
+p.indented-less {
+    margin-left : 10px;
+    margin-top : 5px;
+    padding : 0px;
+}
+
+img {
+    border : none;
+}
+
+img#map
+{
+    float : right;
+}
+a.cgHeader
+{
+    color : black;
+}
+
+a,
+a:link,
+a:visited {
+    /*background-color : white;*/
+    color : blue;
+    text-decoration : none;
+}
+a:hover {
+    text-decoration : underline;
+    color : white;
+    background-color : blue;
+}
+
+a.selected {
+    text-decoration : underline;
+    color : white;
+    background-color : blue;
+}
+
+a.plain:hover {
+    text-decoration : none;
+    font-weight : bold;
+    background-color : transparent;
+    color : white;
+}
+p.link:hover{    
+    text-decoration : none;
+    font-weight : bold;
+    background-color : blue;
+    color : white;
+}
+
+/* HOVER STYLES */
+div#pop-up {
+    display : none;
+    position : absolute;
+    width : 500px;
+    height : 300px;
+    padding : 5px;
+    background : #eeeeee;
+    color : #000000;
+    border : 1px solid #1a1a1a;
+    font-size : 90%;
+    overflow : scroll;
+}
+
+
+div.rssdescription {font-size: 0.8em;}
+div.rsstitle {font-weight: bold;}
+div.item { width: 90%; float: left; padding: 0.5em; margin: 0.5em; border: thin dotted black; background-color: #fff; }
+
+div.vertical-center
+{
+    display: table-cell;
+    vertical-align: middle;
+    height : 200px;
+    
+}
+div.center-block{
+     margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+div.basic
+{
+    position : absolute;
+    text-align : center;
+}
+
+.accord-container {
+margin: 0;
+padding: 0;
+}
+
+.accord-heading{
+margin: 1px;
+color: black;
+padding: 3px 10px 5px 5px;
+cursor: pointer;
+position: relative;
+background-color: #E8E8E8;
+}
+
+.group-heading {
+margin: 1px;
+color: black;
+padding: 3px 10px;
+cursor: pointer;
+position: relative;
+background-color: #E8E8E8;
+}
+
+
+.accord-heading:hover {
+color: white;
+background-color: #808080 ;
+}
+.accord-content {
+padding: 5px 10px;
+background-color:#fafafa;
+}
+
+p.leftnav-heading{
+margin: 1px;
+color: black;
+padding: 5px 5px 5px 5px;
+cursor: pointer;
+position: relative;
+background-color: #E8E8E8;
+}
+p.leftnav-heading:hover {
+color: white;
+background-color: #808080 ;
+}
+
+p.selected{
+color: white;
+background-color: #808080 ;
+}
+p.reset-selection{
+color: black;
+background-color: #E8E8E8 ;
+}

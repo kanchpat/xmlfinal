@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/students/orange/!svn/ver/48/trunk/final_project/xsl
+END
+filter_search.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/filter_search.xsl
+END
+landing.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/students/orange/!svn/ver/47/trunk/final_project/xsl/landing.xsl
+END
+search_mock.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/search_mock.xsl
+END
+dept2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/dept2select.xsl
+END
+time2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/time2select.xsl
+END
+course_detail.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/students/orange/!svn/ver/37/trunk/final_project/xsl/course_detail.xsl
+END
+days2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/days2select.xsl
+END
+filter.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/filter.xsl
+END
+departments.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/37/trunk/final_project/xsl/departments.xsl
+END
+header_test.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/header_test.xsl
+END
+common.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/students/orange/!svn/ver/37/trunk/final_project/xsl/common.xsl
+END
+course_listing.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/course_listing.xsl
+END
+term2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/term2select.xsl
+END
+part3.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/students/orange/!svn/ver/48/trunk/final_project/xsl/part3.xsl
+END
+level2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/level2select.xsl
+END
+depart_listings.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/depart_listings.xsl
+END
+instructor2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/instructor2select.xsl
+END
+coursegroup2select.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/coursegroup2select.xsl
+END
+browse.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/students/orange/!svn/ver/37/trunk/final_project/xsl/browse.xsl
+END
+json_listing.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/json_listing.xsl
+END
+department_courses.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/students/orange/!svn/ver/38/trunk/final_project/xsl/department_courses.xsl
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/README.txt
+END
+rss.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/students/orange/!svn/ver/25/trunk/final_project/xsl/rss.xsl
+END

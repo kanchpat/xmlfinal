@@ -1,0 +1,20 @@
+body, td {font-family: arial, helvetica, sans-serif;font-size:12px; height:15px; text-align:left; padding:5px;}
+    h1,h2,h3,h4,h5,h6 {text-align: center;}
+    .forminput { padding-top: 0.25em; }
+    .description { width: 100%;}
+    select { width: 100%; }
+    #courselist {margin: 1em 0.25em; padding: 0.5em;  font-size: 1em; border: thin solid black; width: 100%; font-family:arial, helvetica, sans-serif;}
+    #courselist li { margin-top: 0.5em; }
+    .headers {padding: 1em; }
+    #header {
+        width:660px;
+        margin:0 auto 10px;
+        border:5px solid #ccc;
+        background: #fff url(web/images/shield.png) no-repeat top right;
+    }
+    .tableheaders {background-color: #E2DFDC; font-weight:bold;}
+    tr.oddrow {background-color: #F7F3EF;}
+    .results_tag {font-weight:bold;padding-bottom:5px;}
+    .txtstyle {font-weight:bold;}
+    .headertext {text-align:center;}
+    .backstyle {position:relative;direction:rtl}

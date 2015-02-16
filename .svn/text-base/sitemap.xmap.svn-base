@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:sitemap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://apache.org/cocoon/sitemap/1.0 http://cocoon.apache.org/schema/sitemap/cocoon-sitemap-1.0.xsd"
+  xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+
+  <map:components>
+    <map:generators default="file"/>
+    <map:transformers default="xslt2"/>
+    <map:readers default="resource"/>
+    <map:serializers default="xhtml">
+
+      <map:serializer name="text" src="org.apache.cocoon.serialization.TextSerializer"
+        mime-type="application/x-javascript"> </map:serializer>
+
+
+      <map:serializer name="xhtmlmp" src="org.apache.cocoon.serialization.XMLSerializer"
+        mime-type="application/xhtml+xml">
+        <doctype-public>-//W3C//DTD XHTML Basic 1.1//EN</doctype-public>
+        <doctype-system>http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd</doctype-system>
+        <encoding>UTF-8</encoding>
+        <indent>yes</indent>
+      </map:serializer>
+
+    </map:serializers>
+    <map:selectors default="browser"/>
+    <map:matchers default="wildcard"/>
+
+  </map:components>
+
+  <map:resources>
+    <map:resource name="common-param">
+      <map:generate src="data/courses.xml"/>
+      <map:transform type="xinclude" label="xi"/>
+      <map:transform src="xsl/filter_search.xsl" type="xslt2">
+        <map:parameter name="department" value="{request-param:department}"/>
+        <map:parameter name="cg" value="{request-param:course_group}"/>
+        <map:parameter name="offered" value="{request-param:offered}"/>
+        <map:parameter name="level" value="{request-param:level}"/>
+        <map:parameter name="desc" value="{request-param:description}"/>
+        <map:parameter name="term" value="{request-param:term}"/>
+        <map:parameter name="instructor" value="{request-param:instructor}"/>
+        <map:parameter name="day" value="{request-param:day}"/>
+        <map:parameter name="time" value="{request-param:time}"/>
+      </map:transform>
+
+    </map:resource>
+
+  </map:resources>
+
+  
+    
+  <map:pipelines>
+    
+    <map:pipeline type="noncaching">
+      
+      <map:match pattern="combined.xml">
+        <map:aggregate element="my_aggregated_data">
+          <map:part src="data/courses.xml"/>
+          <map:part src="data/buildings.xml"/>
+        </map:aggregate>
+        <map:serialize type="xml"/>
+      </map:match>
+      
+      <map:match pattern="data/courses-and-blocations.xml">
+        <map:generate src="cocoon:/combined.xml"/>       
+        <map:serialize type="xml"/>
+      </map:match>
+      
+    </map:pipeline>
+    
+    <map:pipeline type="noncaching">
+      <map:match pattern="">
+        <map:redirect-to uri="home.html"/>
+      </map:match>
+
+      <map:match pattern="home.html">
+        <map:generate src="http://feeds.feedburner.com/HarvardGazetteOnline"/>
+        <map:transform src="xsl/landing.xsl" type="xslt2">
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+        </map:transform>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+      <map:match pattern="ajax/search_department.xml">
+        <map:call resource="common-param"/>
+        <map:serialize type="xml"/>
+      </map:match>
+
+      <map:match pattern="ajax/department_list.xml">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/depart_listings.xsl" type="xslt2"/>
+        <map:serialize type="xml"/>
+      </map:match>
+
+      <map:match pattern="ajax/search_advanced.xhtml">
+        <map:call resource="common-param"/>
+        <map:transform src="xsl/part3.xsl" type="xslt2"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+
+      <map:match pattern="*2select.html">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/{1}2select.xsl" type="xslt2"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+      
+      
+
+      <map:match pattern="rss/*.html">
+        <map:generate src="http://feeds.feedburner.com/HarvardGazetteOnline"/>
+        <map:transform src="xsl/rss.xsl" type="xslt2"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+ 
+      <!-- Browse Part -->
+
+      <map:match pattern="browse.html">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/browse.xsl" type="xslt2"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+      
+      
+      
+      <map:match pattern="web/departments.html">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/departments.xsl" type="xslt2"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+      <map:match pattern="web/courses.html">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/courses.xsl" type="xslt2">
+          <map:parameter name="use-request-parameters" value="true"/>
+        </map:transform>
+        <map:serialize type="xhtml"/>
+      </map:match>
+
+  
+      <map:match pattern="web/departments/*.html">
+        <map:generate src="data/courses.xml"/>     
+        <map:transform src="xsl/department_courses.xsl" type="xslt2">
+          <map:parameter name="use-request-parameters" value="true"/>
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+          <map:parameter name="deptcode" value="{1}"/>
+        </map:transform>
+        <map:serialize type="xml"/>
+      </map:match>
+
+     
+      
+      <map:match pattern="web/courses/*.html">
+        <map:generate src="cocoon:/data/courses-and-blocations.xml"/>
+        <map:transform src="xsl/course_detail.xsl" type="xslt2">
+          <map:parameter name="use-request-parameters" value="true"/>
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+        </map:transform>
+        <map:serialize type="xml"/>
+      </map:match>
+
+      <!---mobile -->
+      <map:match pattern="mobile/">
+        <map:redirect-to uri="{baselink:SitemapBaseLink}mobile/index.xhtml"/>
+      </map:match>
+
+      <map:match pattern="mobile/index.xhtml">
+        <map:generate src="data/courses.xml" type="file"/>
+        <map:transform src="xsl/mp/department_listing_mo_page.xsl" type="xslt2">
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+          <map:parameter name="page_linked" value="1"/>
+        </map:transform>
+        <map:serialize type="xhtmlmp"/>
+      </map:match>
+
+      <map:match pattern="mobile/page*.xhtml">
+        <map:generate src="data/courses.xml" type="file"/>
+        <map:transform src="xsl/mp/department_listing_mo_page.xsl" type="xslt2">
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+          <map:parameter name="page_linked" value="{1}"/>
+        </map:transform>
+        <map:serialize type="xhtmlmp"/>
+      </map:match>
+
+      <map:match pattern="mobile/course_groups/*.xhtml">
+        <map:generate src="data/courses.xml" type="file"/>
+        <map:transform src="xsl/mp/course_group_listing_mo_page.xsl" type="xslt2">
+          <map:parameter name="parm_cgroup" value="{1}"/>
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+        </map:transform>
+        <map:serialize type="xhtmlmp"/>
+      </map:match>
+
+      <map:match pattern="mobile/courses/*.html">
+        <map:generate src="data/courses.xml" type="file"/>
+        <map:transform src="xsl/mp/course_detail_mo.xsl" type="xslt2">
+          <map:parameter name="parm_cat_num" value="{1}"/>
+          <map:parameter name="relativepath" value="{baselink:SitemapBaseLink}"/>
+        </map:transform>
+        <map:serialize type="xhtmlmp"/>
+      </map:match>
+
+      <!-- Department course details PDF -->
+      <map:match pattern="xslfo/group/*.pdf">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/fo/nm_department_course_listing.xsl" type="xslt2">
+          <map:parameter name="use-request-parameters" value="true"/>
+        </map:transform>
+        <map:serialize type="fo2pdf"/>
+      </map:match>
+
+      <!-- Single course detail PDF -->
+      <map:match pattern="xslfo/singlecourse/*.pdf">
+        <map:generate src="data/courses.xml"/>
+        <map:transform src="xsl/fo/nm_single_course_detail.xsl" type="xslt2">
+          <map:parameter name="use-request-parameters" value="true"/>
+        </map:transform>
+        <map:serialize type="fo2pdf"/>
+      </map:match>
+
+
+      <map:match pattern="**.html">
+        <map:generate src="web/{1}.html"/>
+        <map:transform type="xinclude"/>
+        <map:serialize type="xhtml"/>
+      </map:match>
+      <map:match pattern="**.swf">
+        <map:read src="web/{1}.swf" mime-type="application/x-shockwave-flash"/>
+      </map:match>
+      <map:match pattern="**.css">
+        <map:read src="web/{1}.css" mime-type="text/css"/>
+      </map:match>
+      <map:match pattern="**.js">
+        <map:read src="web/{1}.js" mime-type="text/javascript"/>
+      </map:match>
+      <map:match pattern="**.png">
+        <map:read src="{1}.png" mime-type="image/png"/>
+      </map:match>
+      <map:match pattern="**.gif">
+        <map:read src="web/{1}.png" mime-type="image/gif"/>
+      </map:match>
+      <map:match pattern="**.jpg">
+        <map:read src="web/{1}.png" mime-type="image/jpeg"/>
+      </map:match>
+      <map:match pattern="**.rnc">
+        <map:read src="web/{1}.rnc" mime-type="text/plain"/>
+      </map:match>
+      <map:match pattern="**.rng">
+        <map:read src="web/{1}.rng" mime-type="text/xml"/>
+      </map:match>
+      <map:match pattern="**.dtd">
+        <map:read src="web/{1}.dtd" mime-type="text/plain"/>
+      </map:match>
+      <map:match pattern="**.xsd">
+        <map:read src="web/{1}.xsd" mime-type="text/xml"/>
+      </map:match>
+      <map:match pattern="**.xml">
+        <map:read src="web/{1}.xml" mime-type="text/xml"/>
+      </map:match>
+    </map:pipeline>
+
+  </map:pipelines>
+
+</map:sitemap>
